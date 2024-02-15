@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Static Map with Custom Label</title>
+  <style>
+    /* Add any additional styling here */
+    .customStaticMap {
+      border: 1px solid #ccc; /* Example border styling */
+      position: relative;
+      display: inline-block;
+    }
+
+    .labelOverlay {
+      position: absolute;
+      color: #000;
+      background-color: #0080607a;
+      opacity: 0.7;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 46px;
+      border-radius: 132px;
+      font-family: Arial, sans-serif;
+      display: none; /* Hide initially */
+    }
+  </style>
+</head>
+<body>
+  <div class="staticMap customStaticMap">
+    <!-- Set initial display to none to show after image load -->
+    <img id="map" src="#" alt="Google Map with Custom Label" style="display: block; width: 697px; height: 408px;">
+    <!-- Overlay for custom label -->
+    <div class="labelOverlay">Places</div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script async>
+   
+   
+    // Example latitude and longitude values (replace with your actual values)
+    const latitude = 28.61831141096773; // replace with the actual latitude
+    const longitude = 77.37741601271676; // replace with the actual longitude
+
+    // Replace with your actual API key
+    const apiKey = 'AIzaSyAOQ4OMTcdythKw2rmpnoIOBcdXW3lnxIg';
+
+    // Function to generate the static map with custom label
+    function generateStaticMap(lat, long) {
+      // Construct the Google Maps Static API URL
+      const staticMapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${long}&zoom=18&size=697x408&key=${apiKey}`;
+
+      // Use the load event directly on the image
+      $('#map').on('load', function() {
+        // Show the label overlay once the image is loaded
+        $('.labelOverlay').css('display', 'block');
+      }).attr('src', staticMapUrl);
+    }
+
+    // Call the function with the example values
+    generateStaticMap(latitude, longitude);
+  </script>
+</body>
+</html>

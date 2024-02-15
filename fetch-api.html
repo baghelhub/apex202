@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function fetchDetails() {
+            try {
+                const response = await fetch('https://boarding.fursurefamily.com/wp-content/uploads/2023/11/main-marker-text.png');
+                
+                // Use response.blob() for images
+                const imageData = await response.blob();
+
+                console.log(imageData);
+            } catch (error) {
+                console.error("Error occurred", error.message);
+            }
+        }
+
+        fetchDetails();
+    </script>
+</body>
+</html>

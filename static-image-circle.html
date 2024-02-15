@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Static Map with Custom Border Image</title>
+</head>
+<body>
+  <!-- Add a div with the "staticMap" class for the image -->
+  <div class="staticMap">
+    <img id="map" src="#" alt="Google Map with Custom Border Image">
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    // Function to generate a Google Static Map URL with a custom border image
+
+    // Example latitude and longitude values (replace with your actual values)
+    const latitude = 37.7749; // replace with the actual latitude
+    const longitude = -122.4194; // replace with the actual longitude
+
+    generateStaticMap(latitude, longitude);
+
+    function generateStaticMap(lat, long) {
+      const latitude = lat;
+      const longitude = long;
+      const borderImage = encodeURIComponent('https://boarding.fursurefamily.com/wp-content/uploads/2023/11/Ellipse-801.png');
+      const apiKey = 'AIzaSyDkrbOWIMyWiWkPnJbQ-9_kRUlY73X4Ky8'; // Replace with your actual API key
+      const staticMapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${latitude},${longitude}&zoom=16&size=697x408&key=${apiKey}&markers=icon:${borderImage}|${latitude},${longitude}`;
+
+      // Use a callback instead of setTimeout for better readability
+      $('.staticMap').addClass('testssmap').on('load', function() {
+        // This code will run once the image is loaded
+        $(this).css('display', 'block');
+      }).find('#map').attr('src', staticMapUrl);
+    }
+  </script>
+</body>
+</html>

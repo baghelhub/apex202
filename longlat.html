@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Find All Locations</title>
+  <style>
+
+    /*--------- css for map viewing */
+    #map {
+      height: 400px;
+      width: 100%;
+    }
+
+    /*---------------- css for marker indexing value*/
+    .marker-label {
+      background-color: #0074D9;
+      color: #FFF;
+      border-radius: 50%;
+      padding: 4px;
+      font-size: 14px;
+      text-align: center;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+    }
+  </style>  
+  </head>
+ <body>
+  <h1>Google Map Markers</h1>
+  <div id="map"></div>
+  <script>
+// 28.6192684886257,77.4265025501003
+
+    /* ------------------------ for country latLang */
+    function initMap() {
+      const map = new google.maps.Map(document.getElementById('map'), {
+        center: { lat: 28.62160140016932, lng: 77.19855572137364 }, // Center of the map India
+        zoom: 4, // Initial zoom level
+      });
+
+      /* --------------------------------------------- Array of marker locations */
+
+ var markerLocations =      [
+  {
+    "lat": "28.62118337172778",
+    "lng": "77.06577665535092",
+    "title": "C, Ram Dutt Enclave, Block E, Uttam Nagar East, Dwarka sec-3, New Delhi, Delhi, 110059",
+    "zipcode": "110059",
+    "city": "Delhi",
+    "state": "Delhi",
+    "store_name": "Pet care paltu group",
+    "address": "C, Ram Dutt Enclave, Block E, Uttam Nagar East, Dwarka sec-3, New Delhi, Delhi, 110059",
+    "percharge": "699",
+    "ratting": "4.90"
+  },
+  {
+    "lat": "28.613098627123158",
+    "lng": "77.05714082207841",
+    "title": "D-50, Block G, Vishwas Park, Uttam Nagar, New Delhi, Delhi, 110059",
+    "zipcode": "110059",
+    "city": "Delhi",
+    "state": "Delhi",
+    "store_name": "Boom Shiva Kennel",
+    "address": "D-50, Block G, Vishwas Park, Uttam Nagar, New Delhi, Delhi, 110059",
+    "percharge": "249",
+    "ratting": "4.50"
+  },
+  {
+    "lat": "28.61641012273845",
+    "lng": "77.03373243630203",
+    "title": "B-1/50, Block B, Sewak Park, Uttam Nagar, New Delhi, Delhi, 110059",
+    "zipcode": "110059",
+    "city": "Delhi",
+    "state": "Delhi",
+    "store_name": "Sam pets kennel",
+    "address": "B-1/50, Block B, Sewak Park, Uttam Nagar, New Delhi, Delhi, 110059",
+    "percharge": "249",
+    "ratting": "5.00"
+  },
+  {
+    "lat": "28.619928806649067",
+    "lng": "77.03935283259794",
+    "title": "Dhull Properties, 80/206 Dwarka Mor, 752, DK Rd, near Metro Pillar No, Mohan Garden, New Delhi, Delhi 110059",
+    "zipcode": "110059",
+    "city": "Delhi",
+    "state": "Delhi",
+    "store_name": "Trust Dog Boarding home",
+    "address": "Dhull Properties, 80/206 Dwarka Mor, 752, DK Rd, near Metro Pillar No, Mohan Garden, New Delhi, Delhi 110059",
+    "percharge": "230",
+    "ratting": "3.90"
+  },
+  {
+    "lat": "28.63568646094055",
+    "lng": "77.03203344228125",
+    "title": "B1/33, Shop No. 2, near State Bank Of India, Janakpuri, New Delhi, Delhi 110058",
+    "zipcode": "110058",
+    "city": "Delhi",
+    "state": "Delhi",
+    "store_name": "King Pets World",
+    "address": "B1/33, Shop No. 2, near State Bank Of India, Janakpuri, New Delhi, Delhi 110058",
+    "percharge": "300",
+    "ratting": "4.30"
+  },
+  {
+    "lat": "28.624918200970047",
+    "lng": "77.03028017863049",
+    "title": "PLOT NO 30, near GANDHI CHOWK, Sector 2, Mohan Garden, Uttam Nagar, New Delhi, Delhi, 110059",
+    "zipcode": "110059",
+    "city": "Delhi",
+    "state": "Delhi",
+    "store_name": "ANURADHA DOG KENNEL",
+    "address": "PLOT NO 30, near GANDHI CHOWK, Sector 2, Mohan Garden, Uttam Nagar, New Delhi, Delhi, 110059",
+    "percharge": "300",
+    "ratting": "5.00"
+  }
+];
+
+        const bounds = new google.maps.LatLngBounds();
+        markerLocations.forEach((location, index) => {
+        const marker = new google.maps.Marker({
+            position: new google.maps.LatLng(location.lat, location.lng),
+            map: map,
+            label: {
+              text: (index + 1).toString(),
+              className: 'marker-label',
+          },
+        });
+          bounds.extend(marker.getPosition());
+        marker.addListener('click', function() {
+            alert();
+         
+          const infoWindow = new google.maps.InfoWindow({
+            content: location.title,
+          });
+          infoWindow.open(map, marker);
+        });
+      });
+
+      map.fitBounds(bounds);
+    }
+     
+      </script>
+      <script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkrbOWIMyWiWkPnJbQ-9_kRUlY73X4Ky8&callback=initMap">
+     </script>
+</body>
+</html>

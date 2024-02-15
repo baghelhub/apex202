@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎉</text></svg>" />
+    <title>Your Page Title</title>
+    <link rel="stylesheet" href="navshare.css" />
+  </head>
+  <body>
+    <h2>Share a URL and Image</h2>
+    <img width="200" height="200" alt="A cat walking in the snow." src="/cat.png"/>
+    <button type="button"></button>
+
+    <script>     
+      const button = document.querySelector('button');
+      const img =  document.querySelector('img');
+
+      const webShareSupported = 'share' in navigator;
+      button.textContent = webShareSupported ? 'Share' : 'Not supported';
+
+      const shareContent = async () => {
+        if (webShareSupported) {
+            const response = await fetch(img.src);
+            const blob = await response.blob();
+
+           const sharedataa = {
+              title: 'Page Title',
+              text: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has  !',
+              url: 'https://example.com',
+              files: [
+                      new File([blob], 'cat.png', { type: 'image/png', }),  ],   
+            };
+                                    
+         const textAndUrl = `${sharedataa.text}\n${sharedataa.url}\n${sharedataa.files}`;
+         console.log();                
+                     
+        try {
+              
+              await navigator.share({ text: textAndUrl});
+                        // console.log('Text shared successfully!');
+                        // console.log(sharedataa);
+                        //  console.log(sharedataa.url);
+                        // console.log(sharedataa.files);
+
+
+              } catch (error) {
+              console.error('Error sharing text:', error);
+            }
+
+
+            
+            }
+      };
+
+      button.addEventListener('click', shareContent);
+    </script>
+  </body>
+</html>

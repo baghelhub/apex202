@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Sharing Popups</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .share-button {
+            padding: 10px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<button class="share-button" data-toggle="modal" data-target="#socialModal">Share</button>
+
+<!-- Modal -->
+<div class="modal fade" id="socialModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Share on Social Media</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <button class="btn btn-primary" onclick="openSocialPopup('facebook')">Facebook</button>
+        <button class="btn btn-success" onclick="openSocialPopup('whatsapp')">WhatsApp</button>
+        <button class="btn btn-danger" onclick="openSocialPopup('gmail')">Gmail</button>
+        <button class="btn btn-info" onclick="openSocialPopup('twitter')">Twitter</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script>
+    function openSocialPopup(platform) {
+        var imageUrl = 'https://boarding.fursurefamily.com/wp-content/uploads/2023/11/main-marker-text.png'; // Replace with your actual image URL
+        var popupUrl;
+
+        switch (platform) {
+            case 'facebook':
+                var facebookAppId = 'your-app-id'; // Replace with your Facebook App ID
+                popupUrl = 'https://www.facebook.com/dialog/share?app_id=' + facebookAppId + '&display=popup&href=' + encodeURIComponent(imageUrl);
+                break;
+            case 'whatsapp':
+                popupUrl = 'https://api.whatsapp.com/send?text=' + encodeURIComponent(imageUrl);
+                break;
+            case 'gmail':
+                // Note: Gmail doesn't directly support image sharing, include image link in the email body
+                popupUrl = 'mailto:?subject=Check%20out%20this%20image&body=' + encodeURIComponent('Check out this image: ' + imageUrl);
+                break;
+            case 'twitter':
+                popupUrl = 'https://twitter.com/intent/tweet?url=' + encodeURIComponent(imageUrl) + '&text=' + encodeURIComponent('Check out this image: ') + '&hashtags=yourHashtags'; // Replace with your hashtags
+                break;
+            default:
+                console.error('Unsupported social media platform');
+                return;
+        }
+
+        var popupWindow = window.open(popupUrl, platform + ' Share', 'width=600,height=400');
+        if (!popupWindow || popupWindow.closed || typeof popupWindow.closed === 'undefined') {
+            alert('Please disable your pop-up blocker and try again.');
+        }
+    }
+</script>
+
+</body>
+</html>
