@@ -3,7 +3,7 @@
 $curl = curl_init();
 
 curl_setopt_array($curl, array(
-  CURLOPT_URL => 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=hospital%2Bin%2B201308&key=AIzaSyD2L_BzdbcjKVOE8uxdEIpnscDlIPEfq-0',
+  CURLOPT_URL => 'https://maps.googleapis.com/maps/api/place/textsearch/json?query=hospital%2Bin%2B201308&key=',
   CURLOPT_RETURNTRANSFER => true,
   CURLOPT_ENCODING => '',
   CURLOPT_MAXREDIRS => 10,
