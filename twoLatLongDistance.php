@@ -58,7 +58,7 @@
       function loadScript() {
         var script = document.createElement("script");
         script.src =
-          "https://maps.googleapis.com/maps/api/js?key=AIzaSyD2L_BzdbcjKVOE8uxdEIpnscDlIPEfq-0&libraries=geometry&callback=initMap";
+          "https://maps.googleapis.com/maps/api/js?key=&libraries=geometry&callback=initMap";
         document.body.appendChild(script);
       }
 
