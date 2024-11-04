@@ -4,7 +4,7 @@
   <title>Location Finder</title>
   <style>
   </style>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2L_BzdbcjKVOE8uxdEIpnscDlIPEfq-0&libraries=places"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -90,7 +90,7 @@
       const paddingZoom = 19; // Adjust the zoom level as needed
 
       // Generate a static map URL with the bounds center and adjusted zoom level
-      const staticMapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${center.lat()},${center.lng()}&zoom=${paddingZoom}&size=400x400&markers=color:blue%7Clabel:A%7C${center.lat()},${center.lng()}&style=feature:poi|visibility:off&key=AIzaSyD2L_BzdbcjKVOE8uxdEIpnscDlIPEfq-0`;
+      const staticMapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${center.lat()},${center.lng()}&zoom=${paddingZoom}&size=400x400&markers=color:blue%7Clabel:A%7C${center.lat()},${center.lng()}&style=feature:poi|visibility:off&key=`;
 
       // Set the src attribute of the img tag to display the static map image
       const staticMapImg = document.getElementById('staticMap');
