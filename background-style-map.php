@@ -4,7 +4,7 @@
   <title>Map Image Converter</title>
   <style>
   </style>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkrbOWIMyWiWkPnJbQ-9_kRUlY73X4Ky8&libraries=places"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places"></script>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
