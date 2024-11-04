@@ -2,7 +2,7 @@
 <html>
 <head>
   <title>Find Nearby Hotels</title>
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2L_BzdbcjKVOE8uxdEIpnscDlIPEfq-0&libraries=places"></script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places"></script>
 </head>
 <body>
   <div id="map" style="width: 100%; height: 400px;"></div>
