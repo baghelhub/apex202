@@ -3,7 +3,7 @@
   <head>
     <title>Static Distance Calculation</title>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD2L_BzdbcjKVOE8uxdEIpnscDlIPEfq-0&libraries=geometry"
+      src="https://maps.googleapis.com/maps/api/js?key=&libraries=geometry"
       async
       defer
     ></script>
