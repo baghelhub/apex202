@@ -1,6 +1,6 @@
 <?php
 // Replace 'YOUR_API_KEY' with your actual API key
-$api_key = 'AIzaSyD2L_BzdbcjKVOE8uxdEIpnscDlIPEfq-0';
+$api_key = '';
 
 // Address to geocode
 $address = '203209';
